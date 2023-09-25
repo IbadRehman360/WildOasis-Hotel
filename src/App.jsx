@@ -10,10 +10,15 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient } from "@tanstack/react-query";
+
+const queryClient = QueryClient()
+
 
 function App() {
   return (
-    <>
+    <ReactQueryDevtools client={queryClient}>
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
@@ -31,7 +36,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </ReactQueryDevtools>
   );
 }
 
